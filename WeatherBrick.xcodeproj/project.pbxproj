@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A3475EFF273305F200BF5E86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3475EFE273305F200BF5E86 /* AppDelegate.swift */; };
-		A3475F01273305F200BF5E86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3475F00273305F200BF5E86 /* ViewController.swift */; };
+		A3475F01273305F200BF5E86 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3475F00273305F200BF5E86 /* HomeViewController.swift */; };
 		A3475F04273305F200BF5E86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3475F02273305F200BF5E86 /* Main.storyboard */; };
 		A3475F06273305F400BF5E86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3475F05273305F400BF5E86 /* Assets.xcassets */; };
 		A3475F09273305F400BF5E86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3475F07273305F400BF5E86 /* LaunchScreen.storyboard */; };
@@ -17,6 +17,7 @@
 		A3ACF2E1273847B000CEE97C /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3ACF2E0273847B000CEE97C /* SF-Pro-Display-Light.otf */; };
 		A3ACF2E3273847B800CEE97C /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3ACF2E2273847B800CEE97C /* SF-Pro-Display-Semibold.otf */; };
 		A3ACF2E727384B9800CEE97C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3ACF2E627384B9800CEE97C /* Localizable.strings */; };
+		F07D212C29C271F300772826 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07D212B29C271F300772826 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,7 @@
 /* Begin PBXFileReference section */
 		A3475EFB273305F200BF5E86 /* WeatherBrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherBrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3475EFE273305F200BF5E86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A3475F00273305F200BF5E86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A3475F00273305F200BF5E86 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A3475F03273305F200BF5E86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A3475F05273305F400BF5E86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3475F08273305F400BF5E86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		A3ACF2E0273847B000CEE97C /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		A3ACF2E2273847B800CEE97C /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		A3ACF2E627384B9800CEE97C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		F07D212B29C271F300772826 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,8 @@
 		A3475EFD273305F200BF5E86 /* WeatherBrick */ = {
 			isa = PBXGroup;
 			children = (
-				A3475F00273305F200BF5E86 /* ViewController.swift */,
+				A3475F00273305F200BF5E86 /* HomeViewController.swift */,
+				F07D212B29C271F300772826 /* InfoViewController.swift */,
 				A3475F02273305F200BF5E86 /* Main.storyboard */,
 				A3ACF2E4273847C600CEE97C /* Resources */,
 				A3ACF2DE27383B7400CEE97C /* Supporting Files */,
@@ -314,7 +317,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3475F01273305F200BF5E86 /* ViewController.swift in Sources */,
+				A3475F01273305F200BF5E86 /* HomeViewController.swift in Sources */,
+				F07D212C29C271F300772826 /* InfoViewController.swift in Sources */,
 				A3475EFF273305F200BF5E86 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
