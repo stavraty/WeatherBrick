@@ -4,8 +4,11 @@
 //
 
 import UIKit
+import WebKit
 import CoreLocation
-//import WeatherBrick
+//import Reachability
+
+let reachability = try! Reachability()
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -45,6 +48,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         temperatureLabel.text = "..."
         typeOfWeatherLabel.text = "..."
         locationLabel.text = "..."
+        brickImage.image = UIImage(named: "image_stone_snow")
         
         sender.endRefreshing()
     }
@@ -84,11 +88,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     func updateUI(with weatherData: WeatherData) {
-        let temperature = Int(weatherData.main.temp - 273.15)
-        temperatureLabel.text = "\(temperature)°"
         
         let weatherType = weatherData.weather.first?.description ?? ""
         typeOfWeatherLabel.text = weatherType
+        
+        let temperature = Int(weatherData.main.temp - 273.15)
+        temperatureLabel.text = "\(temperature)°"
         
         let cityName = weatherData.name
         let countryCode = weatherData.sys.country
@@ -104,6 +109,29 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         } else {
         }
         locationLabel.attributedText = locationText
+        updateBrickImage(with: weatherType)
+        
+//        if reachability.connection == .unavailable {
+//            brickImage.image = UIImage(named: "image_stone_snow")
+//        }
+    }
+    
+    func updateBrickImage(with weatherType: String) {
+        
+        switch weatherType {
+        case "Rain", "Drizzle":
+            brickImage.image = UIImage(named: "image_stone_wet")
+        case "Snow":
+            brickImage.image = UIImage(named: "image_stone_snow")
+        case "Fog", "Mist":
+            brickImage.image = UIImage(named: "image_stone_fog")
+        case "Clear":
+            brickImage.image = UIImage(named: "image_stone_normal")
+        case "Hot":
+            brickImage.image = UIImage(named: "image_stone_cracks")
+        default:
+            brickImage.image = UIImage(named: "image_stone_normal")
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

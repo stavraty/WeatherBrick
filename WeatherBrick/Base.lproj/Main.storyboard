@@ -65,7 +65,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOM-9s-Tj1">
-                                        <rect key="frame" x="120" y="811" width="175" height="85"/>
+                                        <rect key="frame" x="119.5" y="811" width="175" height="85"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="JzV-I5-tSR"/>
                                             <constraint firstAttribute="height" constant="85" id="s1W-nW-vTN"/>
@@ -76,9 +76,10 @@
                                         <state key="normal" title="INFO">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <buttonConfiguration key="configuration" style="filled" title="INFO" cornerStyle="capsule">
+                                        <buttonConfiguration key="configuration" style="filled" title="INFO" cornerStyle="large">
                                             <backgroundConfiguration key="background">
                                                 <color key="backgroundColor" red="0.95300382380000004" green="0.59658205509999995" blue="0.36950460080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="strokeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="18"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -17,6 +17,7 @@
 		A3ACF2E1273847B000CEE97C /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3ACF2E0273847B000CEE97C /* SF-Pro-Display-Light.otf */; };
 		A3ACF2E3273847B800CEE97C /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3ACF2E2273847B800CEE97C /* SF-Pro-Display-Semibold.otf */; };
 		A3ACF2E727384B9800CEE97C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3ACF2E627384B9800CEE97C /* Localizable.strings */; };
+		F07AFDDE29CCE5840001BE88 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFDDD29CCE5840001BE88 /* Reachability.swift */; };
 		F07D212C29C271F300772826 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07D212B29C271F300772826 /* InfoViewController.swift */; };
 		F0B65AF529C3C7030004FF20 /* MyWeatherDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B65AF429C3C7030004FF20 /* MyWeatherDataFile.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		A3ACF2E0273847B000CEE97C /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		A3ACF2E2273847B800CEE97C /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		A3ACF2E627384B9800CEE97C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		F07AFDDD29CCE5840001BE88 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		F07D212B29C271F300772826 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		F0B65AF429C3C7030004FF20 /* MyWeatherDataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWeatherDataFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 				F07D212B29C271F300772826 /* InfoViewController.swift */,
 				A3475F02273305F200BF5E86 /* Main.storyboard */,
 				F0B65AF429C3C7030004FF20 /* MyWeatherDataFile.swift */,
+				F07AFDDD29CCE5840001BE88 /* Reachability.swift */,
 				A3ACF2E4273847C600CEE97C /* Resources */,
 				A3ACF2DE27383B7400CEE97C /* Supporting Files */,
 			);
@@ -233,13 +236,16 @@
 				TargetAttributes = {
 					A3475EFA273305F200BF5E86 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = "";
 					};
 					A3475F0E273305F400BF5E86 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = "";
 						TestTargetID = A3475EFA273305F200BF5E86;
 					};
 					A3475F19273305F400BF5E86 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = "";
 						TestTargetID = A3475EFA273305F200BF5E86;
 					};
 				};
@@ -323,6 +329,7 @@
 				A3475F01273305F200BF5E86 /* HomeViewController.swift in Sources */,
 				F07D212C29C271F300772826 /* InfoViewController.swift in Sources */,
 				F0B65AF529C3C7030004FF20 /* MyWeatherDataFile.swift in Sources */,
+				F07AFDDE29CCE5840001BE88 /* Reachability.swift in Sources */,
 				A3475EFF273305F200BF5E86 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
