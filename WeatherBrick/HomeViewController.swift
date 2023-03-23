@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         temperatureLabel.text = "..."
         typeOfWeatherLabel.text = "..."
         locationLabel.text = "..."
-        brickImage.image = UIImage(named: "image_stone_snow")
+        brickImage.image = UIImage(named: "image_no_internet")
         
         sender.endRefreshing()
     }
