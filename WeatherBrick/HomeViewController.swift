@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    
     let locationImageView = UIImageView(image: UIImage(named: "icon_location"))
     let searchImageView = UIImageView(image: UIImage(named: "icon_search"))
     
@@ -35,6 +36,19 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         scrollView.refreshControl = myRefreshControl
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = InfoButton.bounds
+        gradientLayer.colors = [UIColor(red: 1, green: 0.6, blue: 0.38, alpha: 1).cgColor, UIColor(red: 0.98, green: 0.31, blue: 0.11, alpha: 1).cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        
+        InfoButton.layer.insertSublayer(gradientLayer, at: 0)
+        
+        let cornerRadius: CGFloat = 20.0
+        InfoButton.layer.cornerRadius = cornerRadius
+        InfoButton.clipsToBounds = true
+        InfoButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     @IBAction func goToInfo(_ sender: Any) {
