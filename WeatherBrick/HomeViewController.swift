@@ -6,7 +6,6 @@
 import UIKit
 import WebKit
 import CoreLocation
-//import Reachability
 
 let reachability = try! Reachability()
 
@@ -18,10 +17,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var typeOfWeatherLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-
+    
     let locationImageView = UIImageView(image: UIImage(named: "icon_location"))
     let searchImageView = UIImageView(image: UIImage(named: "icon_search"))
-
+    
     let locationManager = CLLocationManager()
     var location: CLLocation!
     
@@ -52,7 +51,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         sender.endRefreshing()
     }
-
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let refreshControl = scrollView.subviews.first(where: { $0 is UIRefreshControl }) as? UIRefreshControl
         let offsetY = scrollView.contentOffset.y
@@ -67,7 +66,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     func fetchData() {
         let apiKey = "d09438c0cc92bf784485c365b0ec1c93"
         let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=\(apiKey)")!
-
+        
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
                 print("Error: \(error?.localizedDescription ?? "Unknown error")")
@@ -86,7 +85,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         task.resume()
     }
-
+    
     func updateUI(with weatherData: WeatherData) {
         
         let weatherType = weatherData.weather.first?.description ?? ""
@@ -111,9 +110,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         locationLabel.attributedText = locationText
         updateBrickImage(with: weatherType)
         
-//        if reachability.connection == .unavailable {
-//            brickImage.image = UIImage(named: "image_stone_snow")
-//        }
+        //        if reachability.connection == .unavailable {
+        //            brickImage.image = UIImage(named: "image_stone_snow")
+        //        }
     }
     
     func updateBrickImage(with weatherType: String) {
