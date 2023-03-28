@@ -25,7 +25,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heL-Fe-xey">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heL-Fe-xey">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_background" translatesAutoresizingMaskIntoConstraints="NO" id="SmY-q5-s7b">
@@ -35,7 +35,7 @@
                                         <rect key="frame" x="95" y="-11" width="224" height="455"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19N-Ov-JpP">
-                                        <rect key="frame" x="58.5" y="452" width="124" height="100"/>
+                                        <rect key="frame" x="58.5" y="452" width="126" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="MWM-DM-iwb"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="124" id="rXx-Ib-2Jy"/>
@@ -152,84 +152,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_background" translatesAutoresizingMaskIntoConstraints="NO" id="X9s-Lq-qnK">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_background" translatesAutoresizingMaskIntoConstraints="NO" id="X9s-Lq-qnK">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N15-94-Mr1">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FT4-SY-cEY" userLabel="View Background">
+                                <rect key="frame" x="50" y="254" width="324" height="330"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98431372549019602" green="0.37254901960784315" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="infoView"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N15-94-Mr1">
                                 <rect key="frame" x="50.5" y="254" width="313" height="330"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INFO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6Z-Zz-N3C">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="INFO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6Z-Zz-N3C">
                                         <rect key="frame" x="127" y="21" width="59" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="59" id="fWp-FO-xge"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <color key="highlightedColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Brick is wet - raining" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jke-ne-66a">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" fixedFrame="YES" text="Brick is wet - raining" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jke-ne-66a">
                                         <rect key="frame" x="32" y="64" width="249" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="249" id="PpT-QM-zZN"/>
-                                            <constraint firstAttribute="height" constant="21" id="vnP-ET-hz6"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <color key="highlightedColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick is dry -  sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omY-Ja-wk1">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brick is dry -  sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omY-Ja-wk1">
                                         <rect key="frame" x="32" y="93" width="249" height="18"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="249" id="sLs-TO-LTc"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick is hard to see - fog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkH-uy-zdD">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brick is hard to see - fog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkH-uy-zdD">
                                         <rect key="frame" x="32" y="119" width="249" height="18"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="249" id="lGh-3m-WDh"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick whith cracs - very hot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCH-dy-edz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brick whith cracs - very hot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCH-dy-edz">
                                         <rect key="frame" x="32" y="145" width="249" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="249" id="Ym0-Iu-cbu"/>
-                                            <constraint firstAttribute="height" constant="21" id="zrn-qD-jDh"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick with snow - snow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtm-r2-b8o">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brick with snow - snow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtm-r2-b8o">
                                         <rect key="frame" x="32" y="174" width="249" height="18"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="249" id="dQR-WK-5Hm"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick is swinging - windy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0D-Ln-MkQ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brick is swinging - windy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0D-Ln-MkQ">
                                         <rect key="frame" x="32" y="200" width="249" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="Q46-eQ-hSp"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="249" id="bFj-ww-7a6"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCs-Ih-QSP">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCs-Ih-QSP">
                                         <rect key="frame" x="91" y="274" width="131" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="7lw-fv-C8T"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="131" id="Zke-lr-6bk"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.3411764705882353" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Hide" cornerStyle="capsule">
@@ -243,11 +232,9 @@
                                             <action selector="backToHome:" destination="Ps5-JE-pfY" eventType="touchUpInside" id="WnM-kH-FBs"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick is gone - No Internet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1N-Hn-Q99">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brick is gone - No Internet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1N-Hn-Q99">
                                         <rect key="frame" x="32" y="229" width="249" height="18"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="249" id="VQQ-GW-C9H"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -256,51 +243,21 @@
                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" identifier="infoView"/>
-                                <constraints>
-                                    <constraint firstItem="TCs-Ih-QSP" firstAttribute="leading" secondItem="N15-94-Mr1" secondAttribute="leading" constant="91" id="7v5-cb-0Fp"/>
-                                    <constraint firstItem="m1N-Hn-Q99" firstAttribute="top" secondItem="V0D-Ln-MkQ" secondAttribute="bottom" constant="8" symbolic="YES" id="EYx-NJ-gHO"/>
-                                    <constraint firstItem="wCH-dy-edz" firstAttribute="top" secondItem="FkH-uy-zdD" secondAttribute="bottom" constant="8" symbolic="YES" id="HSV-hc-D4G"/>
-                                    <constraint firstAttribute="height" constant="330" id="HkW-kH-THo"/>
-                                    <constraint firstItem="TCs-Ih-QSP" firstAttribute="centerX" secondItem="N15-94-Mr1" secondAttribute="centerX" id="MT2-0R-cM7"/>
-                                    <constraint firstItem="jke-ne-66a" firstAttribute="top" secondItem="u6Z-Zz-N3C" secondAttribute="bottom" constant="22" id="MYK-qE-GXR"/>
-                                    <constraint firstItem="jke-ne-66a" firstAttribute="centerX" secondItem="N15-94-Mr1" secondAttribute="centerX" id="RKS-Fy-Y1l"/>
-                                    <constraint firstItem="omY-Ja-wk1" firstAttribute="top" secondItem="jke-ne-66a" secondAttribute="bottom" constant="8" symbolic="YES" id="SEM-a3-b6d"/>
-                                    <constraint firstAttribute="width" constant="313" id="TDx-ue-aCW"/>
-                                    <constraint firstAttribute="bottom" secondItem="TCs-Ih-QSP" secondAttribute="bottom" constant="21" id="Xoj-Sl-hLf"/>
-                                    <constraint firstItem="V0D-Ln-MkQ" firstAttribute="centerX" secondItem="N15-94-Mr1" secondAttribute="centerX" id="bc4-pj-fTa"/>
-                                    <constraint firstItem="V0D-Ln-MkQ" firstAttribute="top" secondItem="Wtm-r2-b8o" secondAttribute="bottom" constant="8" symbolic="YES" id="e38-F5-Nwg"/>
-                                    <constraint firstItem="Wtm-r2-b8o" firstAttribute="centerX" secondItem="N15-94-Mr1" secondAttribute="centerX" id="gwd-Z1-Yqu"/>
-                                    <constraint firstItem="u6Z-Zz-N3C" firstAttribute="top" secondItem="N15-94-Mr1" secondAttribute="top" constant="21" id="ljw-Nk-6Te"/>
-                                    <constraint firstItem="FkH-uy-zdD" firstAttribute="top" secondItem="omY-Ja-wk1" secondAttribute="bottom" constant="8" symbolic="YES" id="mgO-t1-a0M"/>
-                                    <constraint firstItem="Wtm-r2-b8o" firstAttribute="top" secondItem="wCH-dy-edz" secondAttribute="bottom" constant="8" symbolic="YES" id="pZ5-6N-e2S"/>
-                                    <constraint firstItem="omY-Ja-wk1" firstAttribute="centerX" secondItem="N15-94-Mr1" secondAttribute="centerX" id="qXH-bW-7oK"/>
-                                    <constraint firstItem="FkH-uy-zdD" firstAttribute="centerX" secondItem="N15-94-Mr1" secondAttribute="centerX" id="tWX-6Y-kQA"/>
-                                    <constraint firstItem="wCH-dy-edz" firstAttribute="centerX" secondItem="N15-94-Mr1" secondAttribute="centerX" id="uSj-gU-XU9"/>
-                                    <constraint firstItem="u6Z-Zz-N3C" firstAttribute="centerX" secondItem="N15-94-Mr1" secondAttribute="centerX" id="zhL-sZ-BD8"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="efa-ja-nG7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="X9s-Lq-qnK" firstAttribute="trailing" secondItem="efa-ja-nG7" secondAttribute="trailing" id="B1n-D8-kQ4"/>
-                            <constraint firstItem="X9s-Lq-qnK" firstAttribute="leading" secondItem="efa-ja-nG7" secondAttribute="leading" id="GFu-E9-0yJ"/>
-                            <constraint firstItem="N15-94-Mr1" firstAttribute="centerY" secondItem="X9s-Lq-qnK" secondAttribute="centerY" id="Gqz-GN-5yJ"/>
-                            <constraint firstAttribute="bottom" secondItem="X9s-Lq-qnK" secondAttribute="bottom" id="MxP-gw-RmO"/>
-                            <constraint firstItem="N15-94-Mr1" firstAttribute="centerX" secondItem="X9s-Lq-qnK" secondAttribute="centerX" id="VVv-ua-zJ8"/>
-                            <constraint firstItem="X9s-Lq-qnK" firstAttribute="top" secondItem="zU3-KK-B7K" secondAttribute="top" id="sPN-Bh-Qx8"/>
-                            <constraint firstItem="m1N-Hn-Q99" firstAttribute="centerX" secondItem="X9s-Lq-qnK" secondAttribute="centerX" id="uhy-QG-7zu"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Df-Fd-p2A"/>
                     <connections>
                         <outlet property="BackToHomeButton" destination="TCs-Ih-QSP" id="6GU-f9-YnS"/>
+                        <outlet property="infoBackgroundView" destination="FT4-SY-cEY" id="YcQ-dE-9QM"/>
                         <outlet property="infoView" destination="N15-94-Mr1" id="Edd-tI-9hw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brT-5P-yGD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2767.1755725190837" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="2766.666666666667" y="-2.6785714285714284"/>
         </scene>
     </scenes>
     <resources>

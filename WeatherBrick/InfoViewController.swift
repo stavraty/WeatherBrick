@@ -12,17 +12,24 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var BackToHomeButton: UIButton!
+    @IBOutlet weak var infoBackgroundView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         infoView.layer.cornerRadius = 10
         infoView.layer.masksToBounds = true
+        
+        infoBackgroundView.layer.cornerRadius = 10
+        infoBackgroundView.layer.masksToBounds = true
+        
+        infoBackgroundView.layer.shadowColor = UIColor.darkGray.cgColor
+        infoBackgroundView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        infoBackgroundView.layer.shadowOpacity = 0.5
+        infoBackgroundView.layer.shadowRadius = 3
+        infoBackgroundView.layer.masksToBounds = false
 
-        infoView.layer.shadowColor = UIColor(red: 251/255, green: 95/255, blue: 41/255, alpha: 1).cgColor
-        infoView.layer.shadowOpacity = 1
-        infoView.layer.shadowOffset = CGSize(width: 2, height: 2)
-        infoView.layer.shadowRadius = 5
+
     }
     
     @IBAction func backToHome(_ sender: Any) {
