@@ -25,8 +25,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heL-Fe-xey">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heL-Fe-xey">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_background" translatesAutoresizingMaskIntoConstraints="NO" id="SmY-q5-s7b">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -35,40 +36,71 @@
                                         <rect key="frame" x="95" y="-11" width="224" height="455"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19N-Ov-JpP">
-                                        <rect key="frame" x="58.5" y="452" width="126" height="100"/>
+                                        <rect key="frame" x="16" y="452" width="124" height="126"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="MWM-DM-iwb"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="124" id="rXx-Ib-2Jy"/>
+                                            <constraint firstAttribute="height" constant="126" id="Nb8-ac-207"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="124" id="wUO-JR-Hoz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="83"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhg-XN-Jt4">
-                                        <rect key="frame" x="58.5" y="560" width="166" height="43"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Nfj-FH-4Yi">
+                                        <rect key="frame" x="110.5" y="757" width="193" height="35.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qff-AA-ndC">
+                                                <rect key="frame" x="0.0" y="0.0" width="37" height="35.5"/>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="18"/>
+                                                <color key="tintColor" systemColor="systemCyanColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="INFO">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <buttonConfiguration key="configuration" style="filled" title="G" cornerStyle="large">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="strokeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="18"/>
+                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Krakow, Poland" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4b-uR-EYT">
+                                                <rect key="frame" x="45" y="0.0" width="104.5" height="35.5"/>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ey-e2-jfU">
+                                                <rect key="frame" x="157.5" y="0.0" width="35.5" height="35.5"/>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="18"/>
+                                                <color key="tintColor" systemColor="systemCyanColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="INFO">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <buttonConfiguration key="configuration" style="filled" title="S" cornerStyle="large">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="strokeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="18"/>
+                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="166" id="qtf-Ar-p4l"/>
-                                            <constraint firstAttribute="height" constant="43" id="uHa-Tq-JxR"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="192" id="7VC-oZ-KUo"/>
+                                            <constraint firstAttribute="height" constant="35.5" id="wQk-Gq-mxe"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="36"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Krakow, Poland" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4b-uR-EYT">
-                                        <rect key="frame" x="30.5" y="759" width="353" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="353" id="72z-sc-kfh"/>
-                                            <constraint firstAttribute="height" constant="30" id="ll2-xl-8De"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOM-9s-Tj1">
                                         <rect key="frame" x="119.5" y="811" width="175" height="85"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="JzV-I5-tSR"/>
-                                            <constraint firstAttribute="height" constant="85" id="s1W-nW-vTN"/>
+                                            <constraint firstAttribute="width" constant="175" id="9WX-kD-Tam"/>
+                                            <constraint firstAttribute="height" constant="85" id="y6s-tC-DnL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="18"/>
                                         <color key="tintColor" systemColor="systemCyanColor"/>
@@ -89,19 +121,25 @@
                                             <action selector="goToInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gNE-qq-IPv"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhg-XN-Jt4">
+                                        <rect key="frame" x="16" y="545" width="89.5" height="58"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="89.5" id="ikn-Vo-Z8l"/>
+                                            <constraint firstAttribute="height" constant="58" id="lRO-YT-DKU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="36"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="exh-zo-7pD" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="19N-Ov-JpP" secondAttribute="trailing" symbolic="YES" id="4dh-bo-Jjx"/>
-                                    <constraint firstItem="exh-zo-7pD" firstAttribute="bottom" secondItem="SmY-q5-s7b" secondAttribute="bottom" id="P2N-fr-KOy"/>
-                                    <constraint firstItem="exh-zo-7pD" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mhg-XN-Jt4" secondAttribute="trailing" symbolic="YES" id="Pf6-sO-HCP"/>
-                                    <constraint firstAttribute="trailing" secondItem="SmY-q5-s7b" secondAttribute="trailing" constant="20.666666666666742" id="U66-xk-Yml"/>
-                                    <constraint firstItem="SmY-q5-s7b" firstAttribute="leading" secondItem="exh-zo-7pD" secondAttribute="leading" id="afU-eN-JLH"/>
-                                    <constraint firstItem="19N-Ov-JpP" firstAttribute="top" secondItem="lXu-L8-W8G" secondAttribute="bottom" constant="8" symbolic="YES" id="bOb-Ql-PqG"/>
-                                    <constraint firstItem="exh-zo-7pD" firstAttribute="trailing" secondItem="SmY-q5-s7b" secondAttribute="trailing" id="hDc-HZ-jpt"/>
-                                    <constraint firstItem="mhg-XN-Jt4" firstAttribute="top" secondItem="19N-Ov-JpP" secondAttribute="bottom" constant="8" symbolic="YES" id="jzQ-xq-vMR"/>
-                                    <constraint firstItem="SmY-q5-s7b" firstAttribute="top" secondItem="exh-zo-7pD" secondAttribute="top" id="qzu-EL-BbL"/>
-                                    <constraint firstAttribute="bottom" secondItem="SmY-q5-s7b" secondAttribute="bottom" constant="40" id="smZ-me-3UT"/>
-                                    <constraint firstItem="sOM-9s-Tj1" firstAttribute="top" secondItem="v4b-uR-EYT" secondAttribute="bottom" constant="22" id="t5S-sM-xc2"/>
+                                    <constraint firstItem="19N-Ov-JpP" firstAttribute="top" secondItem="lXu-L8-W8G" secondAttribute="bottom" constant="8" symbolic="YES" id="86L-9p-I3a"/>
+                                    <constraint firstItem="SmY-q5-s7b" firstAttribute="leading" secondItem="exh-zo-7pD" secondAttribute="leading" id="Bue-Pt-0gE"/>
+                                    <constraint firstItem="SmY-q5-s7b" firstAttribute="top" secondItem="exh-zo-7pD" secondAttribute="top" id="FHa-dw-gCK"/>
+                                    <constraint firstItem="sOM-9s-Tj1" firstAttribute="top" secondItem="Nfj-FH-4Yi" secondAttribute="bottom" constant="18.5" id="GXM-Gw-0tZ"/>
+                                    <constraint firstItem="SmY-q5-s7b" firstAttribute="bottom" secondItem="exh-zo-7pD" secondAttribute="bottom" id="cxk-XV-3w1"/>
+                                    <constraint firstItem="mhg-XN-Jt4" firstAttribute="top" secondItem="19N-Ov-JpP" secondAttribute="bottom" constant="-33" id="rw4-LX-Fye"/>
+                                    <constraint firstItem="SmY-q5-s7b" firstAttribute="trailing" secondItem="exh-zo-7pD" secondAttribute="trailing" id="vcD-V9-e4a"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="09A-4P-oG4"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="exh-zo-7pD"/>
@@ -113,21 +151,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="heL-Fe-xey" secondAttribute="bottom" id="1WA-oP-KPL"/>
-                            <constraint firstItem="19N-Ov-JpP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="58.666666666666657" id="5Wc-3Q-2XW"/>
-                            <constraint firstItem="sOM-9s-Tj1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Nwa-iK-Pge"/>
-                            <constraint firstItem="v4b-uR-EYT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Qhv-ie-5eH"/>
-                            <constraint firstItem="heL-Fe-xey" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="R5k-hQ-6b8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="lXu-L8-W8G" secondAttribute="top" constant="59" id="bMn-T1-CEX"/>
-                            <constraint firstAttribute="trailing" secondItem="heL-Fe-xey" secondAttribute="trailing" id="cxf-PV-qwM"/>
-                            <constraint firstItem="sOM-9s-Tj1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="gH3-eB-l0Y"/>
-                            <constraint firstItem="mhg-XN-Jt4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="58.666666666666657" id="hMU-vl-Ytm"/>
-                            <constraint firstItem="heL-Fe-xey" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kJp-bR-Idv"/>
-                            <constraint firstItem="heL-Fe-xey" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lOB-cq-qZu"/>
-                            <constraint firstItem="lXu-L8-W8G" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qtB-r6-aF8"/>
-                            <constraint firstAttribute="bottom" secondItem="heL-Fe-xey" secondAttribute="bottom" id="xZy-bm-7aT"/>
-                            <constraint firstItem="heL-Fe-xey" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xcA-g7-4YG"/>
-                            <constraint firstItem="heL-Fe-xey" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="yva-Iu-hjS"/>
+                            <constraint firstItem="mhg-XN-Jt4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1qe-ja-PQU"/>
+                            <constraint firstItem="sOM-9s-Tj1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GC8-oN-izx"/>
+                            <constraint firstItem="Nfj-FH-4Yi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GMi-F7-rth"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="lXu-L8-W8G" secondAttribute="top" constant="59" id="MwL-vk-Nt7"/>
+                            <constraint firstItem="lXu-L8-W8G" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="UGW-xl-Rc0"/>
+                            <constraint firstItem="sOM-9s-Tj1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="gbq-0y-zEC"/>
+                            <constraint firstItem="19N-Ov-JpP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="n53-Oa-XHg"/>
                         </constraints>
                     </view>
                     <connections>
@@ -152,101 +182,171 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_background" translatesAutoresizingMaskIntoConstraints="NO" id="X9s-Lq-qnK">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="image_background" translatesAutoresizingMaskIntoConstraints="NO" id="X9s-Lq-qnK">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="934"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="934" id="1FN-Ge-0oS"/>
+                                </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FT4-SY-cEY" userLabel="View Background">
-                                <rect key="frame" x="50" y="254" width="324" height="330"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FT4-SY-cEY" userLabel="View Background">
+                                <rect key="frame" x="68" y="233" width="278" height="372"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N15-94-Mr1">
+                                        <rect key="frame" x="1" y="0.0" width="269" height="372"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INFO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6Z-Zz-N3C">
+                                                <rect key="frame" x="114.5" y="24" width="40.5" height="21.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21.5" id="8gA-nx-Eu9"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40.5" id="EhG-bU-ums"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <color key="highlightedColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Brick is wet - raining" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jke-ne-66a">
+                                                <rect key="frame" x="27" y="71" width="123" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="18" id="Hfd-Nr-p4i"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="123" id="bP8-NK-Y1A"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <color key="highlightedColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick is dry -  sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omY-Ja-wk1">
+                                                <rect key="frame" x="27" y="97.5" width="119" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="119" id="83d-kL-RWq"/>
+                                                    <constraint firstAttribute="height" constant="18" id="gzZ-nY-EVZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick is hard to see - fog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkH-uy-zdD">
+                                                <rect key="frame" x="27" y="129.5" width="146" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="146" id="aWM-yg-3nT"/>
+                                                    <constraint firstAttribute="height" constant="18" id="tee-hW-ABu"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick whith cracs - very hot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCH-dy-edz">
+                                                <rect key="frame" x="27" y="161.5" width="165" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="165" id="4nO-cp-yru"/>
+                                                    <constraint firstAttribute="height" constant="18" id="XO2-A7-mky"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick with snow - snow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtm-r2-b8o">
+                                                <rect key="frame" x="27" y="193.5" width="140.5" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="140.5" id="Mh4-lx-Uex"/>
+                                                    <constraint firstAttribute="height" constant="18" id="p6U-im-udD"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick is swinging - windy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0D-Ln-MkQ">
+                                                <rect key="frame" x="27" y="225.5" width="150" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="18" id="6he-yd-BIs"/>
+                                                    <constraint firstAttribute="width" constant="150" id="p3g-2g-vZA"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick is gone - No Internet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1N-Hn-Q99">
+                                                <rect key="frame" x="27" y="257.5" width="158" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="158" id="VoI-xN-QQs"/>
+                                                    <constraint firstAttribute="height" constant="18" id="pCV-WX-tGU"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCs-Ih-QSP">
+                                                <rect key="frame" x="77" y="333" width="115" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="BZm-E8-5uc"/>
+                                                    <constraint firstAttribute="width" constant="115" id="PlI-yr-r3t"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.3411764705882353" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Hide" cornerStyle="capsule">
+                                                    <backgroundConfiguration key="background">
+                                                        <color key="backgroundColor" red="0.95985084769999995" green="0.66506952050000001" blue="0.44545364380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="strokeColor" red="0.3411764705882353" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="15"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="backToHome:" destination="Ps5-JE-pfY" eventType="touchUpInside" id="WnM-kH-FBs"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="infoView"/>
+                                        <constraints>
+                                            <constraint firstItem="omY-Ja-wk1" firstAttribute="top" secondItem="jke-ne-66a" secondAttribute="bottom" constant="14" id="425-Jd-Snu"/>
+                                            <constraint firstItem="jke-ne-66a" firstAttribute="leading" secondItem="omY-Ja-wk1" secondAttribute="leading" id="4Ik-A9-fwe"/>
+                                            <constraint firstItem="wCH-dy-edz" firstAttribute="leading" secondItem="N15-94-Mr1" secondAttribute="leading" constant="27" id="7ah-fV-NRi"/>
+                                            <constraint firstItem="V0D-Ln-MkQ" firstAttribute="leading" secondItem="N15-94-Mr1" secondAttribute="leading" constant="27" id="AgL-6y-Nzw"/>
+                                            <constraint firstItem="FkH-uy-zdD" firstAttribute="leading" secondItem="wCH-dy-edz" secondAttribute="leading" id="BB9-5m-O57"/>
+                                            <constraint firstItem="omY-Ja-wk1" firstAttribute="leading" secondItem="N15-94-Mr1" secondAttribute="leading" constant="27" id="CQo-0L-XF5"/>
+                                            <constraint firstAttribute="bottom" secondItem="TCs-Ih-QSP" secondAttribute="bottom" constant="8" id="FqI-hs-6lm"/>
+                                            <constraint firstItem="Wtm-r2-b8o" firstAttribute="top" secondItem="wCH-dy-edz" secondAttribute="bottom" constant="14" id="Hzk-rP-P70"/>
+                                            <constraint firstItem="omY-Ja-wk1" firstAttribute="leading" secondItem="FkH-uy-zdD" secondAttribute="leading" id="Jk9-Bf-kep"/>
+                                            <constraint firstItem="u6Z-Zz-N3C" firstAttribute="top" secondItem="N15-94-Mr1" secondAttribute="top" constant="24" id="Owk-rg-SuN"/>
+                                            <constraint firstItem="m1N-Hn-Q99" firstAttribute="top" secondItem="V0D-Ln-MkQ" secondAttribute="bottom" constant="14" id="PzJ-co-hyi"/>
+                                            <constraint firstItem="wCH-dy-edz" firstAttribute="top" secondItem="FkH-uy-zdD" secondAttribute="bottom" constant="14" id="T8B-li-p62"/>
+                                            <constraint firstItem="jke-ne-66a" firstAttribute="leading" secondItem="N15-94-Mr1" secondAttribute="leading" constant="27" id="Tvm-ZC-jJC"/>
+                                            <constraint firstItem="FkH-uy-zdD" firstAttribute="leading" secondItem="N15-94-Mr1" secondAttribute="leading" constant="27" id="U0C-mv-HcC"/>
+                                            <constraint firstItem="Wtm-r2-b8o" firstAttribute="leading" secondItem="V0D-Ln-MkQ" secondAttribute="leading" id="XoR-pR-Kqh"/>
+                                            <constraint firstItem="jke-ne-66a" firstAttribute="top" secondItem="u6Z-Zz-N3C" secondAttribute="bottom" constant="20" id="aVs-bM-4ku"/>
+                                            <constraint firstItem="Wtm-r2-b8o" firstAttribute="leading" secondItem="N15-94-Mr1" secondAttribute="leading" constant="27" id="bOR-eK-h08"/>
+                                            <constraint firstItem="TCs-Ih-QSP" firstAttribute="centerX" secondItem="N15-94-Mr1" secondAttribute="centerX" id="f0I-QA-0SX"/>
+                                            <constraint firstItem="FkH-uy-zdD" firstAttribute="top" secondItem="omY-Ja-wk1" secondAttribute="bottom" constant="14" id="gum-fN-7kU"/>
+                                            <constraint firstItem="V0D-Ln-MkQ" firstAttribute="top" secondItem="Wtm-r2-b8o" secondAttribute="bottom" constant="14" id="iy4-fi-EuL"/>
+                                            <constraint firstItem="wCH-dy-edz" firstAttribute="leading" secondItem="Wtm-r2-b8o" secondAttribute="leading" id="mpp-XP-CT6"/>
+                                            <constraint firstItem="u6Z-Zz-N3C" firstAttribute="centerX" secondItem="N15-94-Mr1" secondAttribute="centerX" id="nrx-U3-5Zy"/>
+                                            <constraint firstItem="V0D-Ln-MkQ" firstAttribute="leading" secondItem="m1N-Hn-Q99" secondAttribute="leading" id="w6k-FP-W8X"/>
+                                            <constraint firstItem="m1N-Hn-Q99" firstAttribute="leading" secondItem="N15-94-Mr1" secondAttribute="leading" constant="27" id="zUW-b6-nUD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" red="0.98431372549019602" green="0.37254901960784315" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" identifier="infoView"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N15-94-Mr1">
-                                <rect key="frame" x="50.5" y="254" width="313" height="330"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="INFO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6Z-Zz-N3C">
-                                        <rect key="frame" x="127" y="21" width="59" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <color key="highlightedColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" fixedFrame="YES" text="Brick is wet - raining" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jke-ne-66a">
-                                        <rect key="frame" x="32" y="64" width="249" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <color key="highlightedColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brick is dry -  sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omY-Ja-wk1">
-                                        <rect key="frame" x="32" y="93" width="249" height="18"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brick is hard to see - fog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkH-uy-zdD">
-                                        <rect key="frame" x="32" y="119" width="249" height="18"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brick whith cracs - very hot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCH-dy-edz">
-                                        <rect key="frame" x="32" y="145" width="249" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brick with snow - snow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtm-r2-b8o">
-                                        <rect key="frame" x="32" y="174" width="249" height="18"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brick is swinging - windy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0D-Ln-MkQ">
-                                        <rect key="frame" x="32" y="200" width="249" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCs-Ih-QSP">
-                                        <rect key="frame" x="91" y="274" width="131" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.3411764705882353" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Hide" cornerStyle="capsule">
-                                            <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" red="0.95985084769999995" green="0.66506952050000001" blue="0.44545364380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="strokeColor" red="0.3411764705882353" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </backgroundConfiguration>
-                                            <fontDescription key="titleFontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="15"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="backToHome:" destination="Ps5-JE-pfY" eventType="touchUpInside" id="WnM-kH-FBs"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brick is gone - No Internet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1N-Hn-Q99">
-                                        <rect key="frame" x="32" y="229" width="249" height="18"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <accessibility key="accessibilityConfiguration" identifier="infoView"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="N15-94-Mr1" secondAttribute="trailing" constant="8" id="0sQ-aC-DDy"/>
+                                    <constraint firstAttribute="bottom" secondItem="N15-94-Mr1" secondAttribute="bottom" id="13N-V7-k9V"/>
+                                    <constraint firstItem="N15-94-Mr1" firstAttribute="leading" secondItem="FT4-SY-cEY" secondAttribute="leading" constant="1" id="P4d-iq-PpJ"/>
+                                    <constraint firstItem="N15-94-Mr1" firstAttribute="top" secondItem="FT4-SY-cEY" secondAttribute="top" id="zzB-Tl-UnS"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="efa-ja-nG7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X9s-Lq-qnK" firstAttribute="top" secondItem="efa-ja-nG7" secondAttribute="top" id="CAi-h8-ZI1"/>
+                            <constraint firstItem="FT4-SY-cEY" firstAttribute="top" secondItem="efa-ja-nG7" secondAttribute="top" constant="185" id="LGn-aW-a03"/>
+                            <constraint firstItem="FT4-SY-cEY" firstAttribute="leading" secondItem="efa-ja-nG7" secondAttribute="leading" constant="68" id="Noh-xw-Iwh"/>
+                            <constraint firstItem="X9s-Lq-qnK" firstAttribute="leading" secondItem="efa-ja-nG7" secondAttribute="leading" id="Q8X-qE-SGv"/>
+                            <constraint firstItem="efa-ja-nG7" firstAttribute="bottom" secondItem="FT4-SY-cEY" secondAttribute="bottom" constant="233" id="bR2-tf-IuF"/>
+                            <constraint firstItem="X9s-Lq-qnK" firstAttribute="centerX" secondItem="FT4-SY-cEY" secondAttribute="centerX" id="fhH-DZ-Iro"/>
+                            <constraint firstItem="efa-ja-nG7" firstAttribute="trailing" secondItem="FT4-SY-cEY" secondAttribute="trailing" constant="68" id="iSy-a8-uEK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Df-Fd-p2A"/>
                     <connections>
