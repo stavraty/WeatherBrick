@@ -115,6 +115,11 @@
                                             <action selector="goToInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gNE-qq-IPv"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write here your location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="81h-rS-Toj">
+                                        <rect key="frame" x="24" y="367" width="367" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="sOM-9s-Tj1" firstAttribute="bottom" secondItem="exh-zo-7pD" secondAttribute="bottom" id="4GX-ck-TjR"/>
@@ -141,15 +146,18 @@
                             <constraint firstAttribute="bottom" secondItem="heL-Fe-xey" secondAttribute="bottom" id="C1e-r3-kps"/>
                             <constraint firstItem="sOM-9s-Tj1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GC8-oN-izx"/>
                             <constraint firstItem="Nfj-FH-4Yi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GMi-F7-rth"/>
+                            <constraint firstItem="81h-rS-Toj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="319" id="Lp2-wr-mOh"/>
                             <constraint firstItem="mhg-XN-Jt4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="NRN-hy-hy8"/>
                             <constraint firstItem="heL-Fe-xey" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Tsz-bp-Of8"/>
                             <constraint firstItem="19N-Ov-JpP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="WdE-gP-Bhs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="81h-rS-Toj" secondAttribute="trailing" constant="23" id="Zel-ub-oEJ"/>
                             <constraint firstItem="lXu-L8-W8G" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eNJ-Xq-qpk"/>
                             <constraint firstItem="heL-Fe-xey" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fOu-8w-DF3"/>
                             <constraint firstItem="heL-Fe-xey" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ozo-rJ-1gr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="lXu-L8-W8G" secondAttribute="top" constant="59" id="sDv-si-gSG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lXu-L8-W8G" secondAttribute="trailing" constant="95" id="t2e-s6-vOj"/>
                             <constraint firstItem="heL-Fe-xey" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tKn-Us-2vI"/>
+                            <constraint firstItem="81h-rS-Toj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="ysu-Pt-czr"/>
                             <constraint firstItem="lXu-L8-W8G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="95" id="zNX-uH-U5y"/>
                         </constraints>
                     </view>
@@ -160,6 +168,7 @@
                         <outlet property="locationLabel" destination="v4b-uR-EYT" id="Ulb-Ht-PjH"/>
                         <outlet property="scrollView" destination="heL-Fe-xey" id="djE-AK-xVH"/>
                         <outlet property="searchButton" destination="5ey-e2-jfU" id="cgz-1s-K0Y"/>
+                        <outlet property="searchTextField" destination="81h-rS-Toj" id="get-T0-cMM"/>
                         <outlet property="temperatureLabel" destination="19N-Ov-JpP" id="5Qm-rQ-uvn"/>
                         <outlet property="typeOfWeatherLabel" destination="mhg-XN-Jt4" id="Vkf-tT-bs7"/>
                         <segue destination="Ps5-JE-pfY" kind="show" identifier="goToInfo" id="CWk-8P-I2A"/>
@@ -187,7 +196,7 @@
                                         <rect key="frame" x="1" y="0.0" width="269" height="372"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INFO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6Z-Zz-N3C">
-                                                <rect key="frame" x="114.5" y="24" width="40.5" height="21.5"/>
+                                                <rect key="frame" x="113.5" y="24" width="42" height="21.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21.5" id="8gA-nx-Eu9"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40.5" id="EhG-bU-ums"/>
@@ -197,7 +206,7 @@
                                                 <color key="highlightedColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Brick is wet - raining" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jke-ne-66a">
-                                                <rect key="frame" x="27" y="65.5" width="123" height="18"/>
+                                                <rect key="frame" x="27" y="65.5" width="137" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="Hfd-Nr-p4i"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="123" id="bP8-NK-Y1A"/>
@@ -207,7 +216,7 @@
                                                 <color key="highlightedColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick is dry -  sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omY-Ja-wk1">
-                                                <rect key="frame" x="27" y="95.5" width="119" height="18"/>
+                                                <rect key="frame" x="27" y="95.5" width="133.5" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="119" id="83d-kL-RWq"/>
                                                     <constraint firstAttribute="height" constant="18" id="gzZ-nY-EVZ"/>
@@ -217,7 +226,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick is hard to see - fog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkH-uy-zdD">
-                                                <rect key="frame" x="27" y="125.5" width="146" height="18"/>
+                                                <rect key="frame" x="27" y="125.5" width="165" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="146" id="aWM-yg-3nT"/>
                                                     <constraint firstAttribute="height" constant="18" id="tee-hW-ABu"/>
@@ -227,7 +236,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick whith cracs - very hot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCH-dy-edz">
-                                                <rect key="frame" x="27" y="155.5" width="165" height="18"/>
+                                                <rect key="frame" x="27" y="155.5" width="184" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="165" id="4nO-cp-yru"/>
                                                     <constraint firstAttribute="height" constant="18" id="XO2-A7-mky"/>
@@ -237,7 +246,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick with snow - snow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtm-r2-b8o">
-                                                <rect key="frame" x="27" y="185.5" width="140.5" height="18"/>
+                                                <rect key="frame" x="27" y="185.5" width="156.5" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140.5" id="Mh4-lx-Uex"/>
                                                     <constraint firstAttribute="height" constant="18" id="p6U-im-udD"/>
@@ -247,7 +256,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick is swinging - windy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0D-Ln-MkQ">
-                                                <rect key="frame" x="27" y="215.5" width="150" height="18"/>
+                                                <rect key="frame" x="27" y="215.5" width="167" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="6he-yd-BIs"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="p3g-2g-vZA"/>
@@ -257,7 +266,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brick is gone - No Internet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1N-Hn-Q99">
-                                                <rect key="frame" x="27" y="245.5" width="158" height="18"/>
+                                                <rect key="frame" x="27" y="245.5" width="176.5" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="158" id="VoI-xN-QQs"/>
                                                     <constraint firstAttribute="height" constant="18" id="pCV-WX-tGU"/>

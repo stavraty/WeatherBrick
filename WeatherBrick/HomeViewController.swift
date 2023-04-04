@@ -9,7 +9,7 @@ import CoreLocation
 
 let reachability = try! Reachability()
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var InfoButton: UIButton!
     @IBOutlet weak var brickImage: UIImageView!
@@ -19,18 +19,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchTextField: UITextField!
     
     let locationImageView = UIImageView(image: UIImage(named: "icon_location"))
     let searchImageView = UIImageView(image: UIImage(named: "icon_search"))
     let locationManager = CLLocationManager()
     var location: CLLocation!
+    let apiKey = "d09438c0cc92bf784485c365b0ec1c93"
     
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         return refreshControl
     }()
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.refreshControl = myRefreshControl
@@ -51,7 +53,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         InfoButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         locationButton.setImage(locationImageView.image, for: .normal)
         searchButton.setImage(searchImageView.image, for: .normal)
-
+        
+        searchTextField.isHidden = true
+        searchButton.addTarget(self, action: #selector(pushToSearchButton), for: .touchUpInside)
+        
+        searchTextField.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     @IBAction func goToInfo(_ sender: Any) {
@@ -68,12 +76,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func pushToSearchButton(_ sender: Any) {
+        searchTextField.isHidden = false
+        searchTextField.becomeFirstResponder()
     }
     
     func fetchData() {
-        let apiKey = "d09438c0cc92bf784485c365b0ec1c93"
         let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=\(apiKey)")!
-        
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
                 print("Error: \(error?.localizedDescription ?? "Unknown error")")
@@ -104,6 +112,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         locationText.append(NSAttributedString(string: " \(cityName), \(countryCode) "))
         locationLabel.attributedText = locationText
         updateBrickImage(with: weatherType)
+        
         UIView.animate(withDuration: 0.1, animations: {
             self.brickImage.transform = CGAffineTransform(translationX: 0, y: 30)
         }, completion: { _ in
@@ -114,7 +123,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func updateBrickImage(with weatherType: String) {
-        
         switch weatherType {
         case "Rain", "Drizzle":
             brickImage.image = UIImage(named: "image_stone_wet")
@@ -161,6 +169,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
         task.resume()
+    }
+    
+    @objc func hideKeyboard() {
+        searchTextField.isHidden = true
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.isHidden = true
+        searchTextField.resignFirstResponder()
+        if let city = textField.text {
+            updateWeatherData(for: city)
+        }
+        return true
     }
 }
 
