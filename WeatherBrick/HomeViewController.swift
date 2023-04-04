@@ -17,7 +17,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var typeOfWeatherLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
     
+    @IBOutlet weak var brickImageTopConstraint: NSLayoutConstraint!
     
     let locationImageView = UIImageView(image: UIImage(named: "icon_location"))
     let searchImageView = UIImageView(image: UIImage(named: "icon_search"))
@@ -30,7 +33,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         return refreshControl
     }()
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.refreshControl = myRefreshControl
@@ -49,6 +52,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         InfoButton.layer.cornerRadius = cornerRadius
         InfoButton.clipsToBounds = true
         InfoButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        locationButton.setImage(locationImageView.image, for: .normal)
+        searchButton.setImage(searchImageView.image, for: .normal)
+
     }
     
     @IBAction func goToInfo(_ sender: Any) {
@@ -56,25 +62,17 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc private func refresh(_ sender: UIRefreshControl) {
+        brickImageTopConstraint.constant += 5
         fetchData()
-        
-        temperatureLabel.text = "..."
-        typeOfWeatherLabel.text = "..."
-        locationLabel.text = "..."
-        brickImage.image = UIImage(named: "image_no_internet")
-        
+        brickImageTopConstraint.constant -= 5
         sender.endRefreshing()
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let refreshControl = scrollView.subviews.first(where: { $0 is UIRefreshControl }) as? UIRefreshControl
-        let offsetY = scrollView.contentOffset.y
-        
-        if offsetY < -refreshControl!.frame.height {
-            refreshControl?.tintColor = .green
-        } else {
-            refreshControl?.tintColor = .white
-        }
+    @IBAction func pushToLocationButton(_ sender: Any) {
+        refresh(myRefreshControl)
+    }
+    
+    @IBAction func pushToSearchButton(_ sender: Any) {
     }
     
     func fetchData() {
@@ -110,23 +108,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         let cityName = weatherData.name
         let countryCode = weatherData.sys.country
-        //locationLabel.text = " \(cityName), \(countryCode) "
         let locationText = NSMutableAttributedString(string: "")
-        if #available(iOS 13.0, *) {
-            locationText.append(NSAttributedString(attachment: NSTextAttachment(image: locationImageView.image!)))
-        } else {
-        }
         locationText.append(NSAttributedString(string: " \(cityName), \(countryCode) "))
-        if #available(iOS 13.0, *) {
-            locationText.append(NSAttributedString(attachment: NSTextAttachment(image: searchImageView.image!)))
-        } else {
-        }
         locationLabel.attributedText = locationText
         updateBrickImage(with: weatherType)
-        
-        //        if reachability.connection == .unavailable {
-        //            brickImage.image = UIImage(named: "image_stone_snow")
-        //        }
     }
     
     func updateBrickImage(with weatherType: String) {
@@ -134,7 +119,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         switch weatherType {
         case "Rain", "Drizzle":
             brickImage.image = UIImage(named: "image_stone_wet")
-        case "Snow":
+        case "light snow", "snow":
             brickImage.image = UIImage(named: "image_stone_snow")
         case "Fog", "Mist":
             brickImage.image = UIImage(named: "image_stone_fog")
