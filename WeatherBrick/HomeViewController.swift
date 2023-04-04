@@ -20,11 +20,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     
-    @IBOutlet weak var brickImageTopConstraint: NSLayoutConstraint!
-    
     let locationImageView = UIImageView(image: UIImage(named: "icon_location"))
     let searchImageView = UIImageView(image: UIImage(named: "icon_search"))
-    
     let locationManager = CLLocationManager()
     var location: CLLocation!
     
@@ -62,14 +59,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc private func refresh(_ sender: UIRefreshControl) {
-        brickImageTopConstraint.constant += 5
         fetchData()
-        brickImageTopConstraint.constant -= 5
         sender.endRefreshing()
     }
     
     @IBAction func pushToLocationButton(_ sender: Any) {
-        refresh(myRefreshControl)
+        locationManager.startUpdatingLocation()
     }
     
     @IBAction func pushToSearchButton(_ sender: Any) {
@@ -99,19 +94,23 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func updateUI(with weatherData: WeatherData) {
-        
         let weatherType = weatherData.weather.first?.description ?? ""
         typeOfWeatherLabel.text = weatherType
-        
         let temperature = Int(weatherData.main.temp - 273.15)
         temperatureLabel.text = "\(temperature)°"
-        
         let cityName = weatherData.name
         let countryCode = weatherData.sys.country
         let locationText = NSMutableAttributedString(string: "")
         locationText.append(NSAttributedString(string: " \(cityName), \(countryCode) "))
         locationLabel.attributedText = locationText
         updateBrickImage(with: weatherType)
+        UIView.animate(withDuration: 0.1, animations: {
+            self.brickImage.transform = CGAffineTransform(translationX: 0, y: 30)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.1, animations: {
+                self.brickImage.transform = CGAffineTransform.identity
+            })
+        })
     }
     
     func updateBrickImage(with weatherType: String) {
