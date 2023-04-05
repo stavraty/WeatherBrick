@@ -72,7 +72,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
     }
     
     @IBAction func pushToLocationButton(_ sender: Any) {
-        locationManager.startUpdatingLocation()
+        myRefreshControl.beginRefreshing()
+        refresh(myRefreshControl)
     }
     
     @IBAction func pushToSearchButton(_ sender: Any) {
@@ -101,6 +102,51 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         task.resume()
     }
     
+    func searchForCity() {
+        if let cityName = searchTextField.text?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=\(apiKey)"
+            if let url = URL(string: urlString) {
+                let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                    guard let data = data, error == nil else {
+                        print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                        return
+                    }
+                    
+                    do {
+                        let weatherData = try JSONDecoder().decode(WeatherData.self, from: data)
+                        DispatchQueue.main.async {
+                            self.updateUI(with: weatherData)
+                        }
+                    } catch {
+                        print("Error: \(error.localizedDescription)")
+                    }
+                }
+                
+                task.resume()
+            }
+        }
+    }
+
+    func updateWeatherData(for city: String) {
+        let city = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)")!
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            do {
+                let weatherData = try JSONDecoder().decode(WeatherData.self, from: data)
+                DispatchQueue.main.async {
+                    self.updateUI(with: weatherData)
+                }
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+        task.resume()
+    }
+
     func updateUI(with weatherData: WeatherData) {
         let weatherType = weatherData.weather.first?.description ?? ""
         typeOfWeatherLabel.text = weatherType
@@ -182,7 +228,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         if let city = textField.text {
             updateWeatherData(for: city)
         }
+        textField.resignFirstResponder()
         return true
     }
 }
-
