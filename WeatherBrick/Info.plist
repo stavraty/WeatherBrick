@@ -26,8 +26,8 @@
 	<string>Надати дозвіл додатку для визначення поточної локації</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>SF-Pro-Display-Light.otf</string>
 		<string>SF-Pro-Display-Semibold.otf</string>
+		<string>SF-Pro-Display-Light.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

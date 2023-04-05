@@ -46,11 +46,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
         
         InfoButton.layer.insertSublayer(gradientLayer, at: 0)
-        
         let cornerRadius: CGFloat = 20.0
         InfoButton.layer.cornerRadius = cornerRadius
         InfoButton.clipsToBounds = true
         InfoButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        InfoButton.titleLabel?.font = UIFont(name: "SFProDisplay-Semibold", size: 22)
+        
         locationButton.setImage(locationImageView.image, for: .normal)
         searchButton.setImage(searchImageView.image, for: .normal)
         
@@ -60,6 +61,33 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         searchTextField.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
+        
+        searchTextField.layer.shadowColor = UIColor.black.cgColor
+        searchTextField.layer.shadowOpacity = 0.5
+        searchTextField.layer.shadowOffset = CGSize(width: 0, height: 2)
+        searchTextField.layer.shadowRadius = 2
+        searchTextField.layer.borderWidth = 1
+        searchTextField.layer.borderColor = UIColor.lightGray.cgColor
+        
+        //Reachability
+        reachability.whenReachable = { reachability in
+            if reachability.connection == .wifi {
+                print("Reachable via wifi")
+            }else{
+                print("Reachable via cellular")
+            }
+        }
+        
+        reachability.whenUnreachable = { _ in
+            print("Not reachable")
+            self.showAlert()
+        }
+        
+        do {
+            try reachability.startNotifier()
+        }catch{
+            print("unable to start notifier")
+        }
     }
     
     @IBAction func goToInfo(_ sender: Any) {
@@ -126,7 +154,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
             }
         }
     }
-
+    
     func updateWeatherData(for city: String) {
         let city = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)")!
@@ -146,7 +174,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         }
         task.resume()
     }
-
+    
     func updateUI(with weatherData: WeatherData) {
         let weatherType = weatherData.weather.first?.description ?? ""
         typeOfWeatherLabel.text = weatherType
@@ -170,7 +198,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
     
     func updateBrickImage(with weatherType: String) {
         switch weatherType {
-        case "Rain", "Drizzle":
+        case "Rain", "Drizzle", "moderate rain", "light rain":
             brickImage.image = UIImage(named: "image_stone_wet")
         case "light snow", "snow":
             brickImage.image = UIImage(named: "image_stone_snow")
@@ -230,5 +258,18 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         }
         textField.resignFirstResponder()
         return true
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Whoops!", message: "This app requires an internet connection!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"),
+                                      style: .default, handler: {_ in
+            NSLog("The \"OK \" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+        brickImage.image = UIImage(named: "image_no_internet")
+        temperatureLabel.text = ""
+        typeOfWeatherLabel.text = ""
+        locationLabel.text = ""
     }
 }
