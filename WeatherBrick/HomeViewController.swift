@@ -69,7 +69,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         searchTextField.layer.borderWidth = 1
         searchTextField.layer.borderColor = UIColor.lightGray.cgColor
         
-        //Reachability
         reachability.whenReachable = { reachability in
             if reachability.connection == .wifi {
                 print("Reachable via wifi")
@@ -160,7 +159,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
-                print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                DispatchQueue.main.async {
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription ?? "Unknown error", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
                 return
             }
             do {
@@ -169,11 +173,17 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
                     self.updateUI(with: weatherData)
                 }
             } catch {
-                print("Error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
         }
         task.resume()
     }
+
     
     func updateUI(with weatherData: WeatherData) {
         let weatherType = weatherData.weather.first?.description ?? ""
