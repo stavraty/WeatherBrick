@@ -87,8 +87,36 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         }catch{
             print("unable to start notifier")
         }
+        
+        brickImage.addSubview(myRefreshControl)
+
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        brickImage.isUserInteractionEnabled = true
+        brickImage.addGestureRecognizer(panGesture)
     }
     
+    @objc func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self.brickImage.superview)
+
+        switch gesture.state {
+        case .changed:
+            var transform = CGAffineTransform.identity
+            if translation.y <= 30 {
+                transform = CGAffineTransform(translationX: 0, y: translation.y)
+            } else {
+                transform = CGAffineTransform(translationX: 0, y: 30)
+            }
+
+            brickImage.transform = transform
+        case .ended:
+            if translation.y > 30 {
+                    self.fetchData()
+                }
+        default:
+            break
+        }
+    }
+
     @IBAction func goToInfo(_ sender: Any) {
         performSegue(withIdentifier: "goToInfo", sender: nil)
     }
