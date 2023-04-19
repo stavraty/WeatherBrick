@@ -11,12 +11,18 @@ import UIKit
 class InfoViewController: UIViewController {
     
     @IBOutlet weak var infoView: UIView!
-    @IBOutlet weak var BackToHomeButton: UIButton!
     @IBOutlet weak var infoBackgroundView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupViews()
+    }
+    
+    @IBAction func backToHome(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    private func setupViews() {
         infoView.layer.cornerRadius = 10
         infoView.layer.masksToBounds = true
         
@@ -28,11 +34,5 @@ class InfoViewController: UIViewController {
         infoBackgroundView.layer.shadowOpacity = 0.5
         infoBackgroundView.layer.shadowRadius = 3
         infoBackgroundView.layer.masksToBounds = false
-
-
-    }
-    
-    @IBAction func backToHome(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
     }
 }

@@ -166,8 +166,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="InfoButton" destination="sOM-9s-Tj1" id="b9T-cM-xgh"/>
                         <outlet property="brickImage" destination="lXu-L8-W8G" id="PED-YP-zlc"/>
+                        <outlet property="infoButton" destination="sOM-9s-Tj1" id="b9T-cM-xgh"/>
                         <outlet property="locationButton" destination="Qff-AA-ndC" id="1yH-q2-xnd"/>
                         <outlet property="locationLabel" destination="v4b-uR-EYT" id="Ulb-Ht-PjH"/>
                         <outlet property="scrollView" destination="heL-Fe-xey" id="djE-AK-xVH"/>
@@ -365,7 +365,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="4Df-Fd-p2A"/>
                     <connections>
-                        <outlet property="BackToHomeButton" destination="TCs-Ih-QSP" id="6GU-f9-YnS"/>
                         <outlet property="infoBackgroundView" destination="FT4-SY-cEY" id="YcQ-dE-9QM"/>
                         <outlet property="infoView" destination="N15-94-Mr1" id="Edd-tI-9hw"/>
                     </connections>
