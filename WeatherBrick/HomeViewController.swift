@@ -23,9 +23,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     let networkManager = NetworkManager()
     var cityName: String = ""
-    
     static let locationManager = CLLocationManager()
-    var locationCoordinate: CLLocationCoordinate2D?
     
     let locationImageView = UIImageView(image: UIImage(named: "icon_location"))
     let searchImageView = UIImageView(image: UIImage(named: "icon_search"))
