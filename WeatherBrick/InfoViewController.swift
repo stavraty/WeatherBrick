@@ -24,10 +24,10 @@ class InfoViewController: UIViewController {
     
     private func setupViews() {
         infoView.layer.cornerRadius = 10
-        infoView.layer.masksToBounds = true
+        infoView.layer.masksToBounds = false
         
         infoBackgroundView.layer.cornerRadius = 10
-        infoBackgroundView.layer.masksToBounds = true
+        infoBackgroundView.layer.masksToBounds = false
         
         infoBackgroundView.layer.shadowColor = UIColor.darkGray.cgColor
         infoBackgroundView.layer.shadowOffset = CGSize(width: 0, height: 5)

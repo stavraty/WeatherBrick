@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct WeatherData: Codable {
+struct WeatherModel: Codable {
     let name: String
     let sys: Sys
     let weather: [Weather]

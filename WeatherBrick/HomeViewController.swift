@@ -21,19 +21,19 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private var searchButton: UIButton!
     @IBOutlet private var searchTextField: UITextField!
     
-    let networkManager = NetworkManager()
-    var cityName: String = ""
+    private let networkManager = NetworkManager()
+    private var cityName: String = ""
     static let locationManager = CLLocationManager()
     
-    let locationImageView = UIImageView(image: UIImage(named: "icon_location"))
-    let searchImageView = UIImageView(image: UIImage(named: "icon_search"))
-    let locationManager = CLLocationManager()
-    var location: CLLocation!
-    let apiKey = "d09438c0cc92bf784485c365b0ec1c93"
+    private let locationImageView = UIImageView(image: UIImage(named: "icon_location"))
+    private let searchImageView = UIImageView(image: UIImage(named: "icon_search"))
+    private let locationManager = CLLocationManager()
+    private var location: CLLocation!
+    private let apiKey = "d09438c0cc92bf784485c365b0ec1c93"
     
-    let myRefreshControl: UIRefreshControl = {
+    private let pullToRefreshWeather: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshWeather(_:)), for: .valueChanged)
         return refreshControl
     }()
     
@@ -56,14 +56,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "goToInfo", sender: nil)
     }
     
-    @objc private func refresh(_ sender: UIRefreshControl) {
-        fetchData()
-        sender.endRefreshing()
-    }
-    
     @IBAction func pushToLocationButton(_ sender: Any) {
-        myRefreshControl.beginRefreshing()
-        refresh(myRefreshControl)
+        pullToRefreshWeather.beginRefreshing()
+        refreshWeather(pullToRefreshWeather)
     }
     
     @IBAction func pushToSearchButton(_ sender: Any) {
@@ -72,7 +67,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setupRefreshControl() {
-        scrollView.refreshControl = myRefreshControl
+        scrollView.refreshControl = pullToRefreshWeather
     }
     
     func setupLocationManager() {
@@ -124,21 +119,38 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             self.typeOfWeatherLabel.text = ""
             self.locationLabel.text = ""
         }
-        if let _ = try? reachability.startNotifier() {
-            
-        } else {
-            
-        }
+        try? reachability.startNotifier()
     }
     
     func setupRefreshControlInBrickImage() {
-        brickImage.addSubview(myRefreshControl)
+        brickImage.addSubview(pullToRefreshWeather)
     }
     
     func setupPanGesture() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         brickImage.isUserInteractionEnabled = true
         brickImage.addGestureRecognizer(panGesture)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.isHidden = true
+        searchTextField.resignFirstResponder()
+        if let city = textField.text {
+            cityName = city
+            fetchDataForCity(city)
+        }
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc private func refreshWeather(_ sender: UIRefreshControl) {
+        fetchData()
+        sender.endRefreshing()
+    }
+    
+    @objc func hideKeyboard() {
+        searchTextField.isHidden = true
+        view.endEditing(true)
     }
     
     @objc func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
@@ -163,7 +175,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func updateBrickImage(with weatherType: String) {
+    private func updateBrickImage(with weatherType: String) {
         switch weatherType {
         case "Rain", "Drizzle", "moderate rain", "light rain":
             brickImage.image = UIImage(named: "image_stone_wet")
@@ -180,30 +192,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @objc func hideKeyboard() {
-        searchTextField.isHidden = true
-        view.endEditing(true)
-    }
-    
-    func showAlertNoConnections() {
-        let alert = UIAlertController(title: "Whoops!", message: "This app requires an internet connection!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"),
-                                      style: .default, handler: {_ in
-            NSLog("The \"OK \" alert occured.")
-        }))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func showErrorAlert(with error: Error?) {
-        DispatchQueue.main.async {
-            let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
-        }
-    }
-    
-    func fetchData() {
+    private func fetchData() {
         if let location = locationManager.location {
             networkManager.fetchWeatherData(location: location, city: nil) { result in
                 switch result {
@@ -216,7 +205,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func fetchDataForCity(_ city: String) {
+    private func fetchDataForCity(_ city: String) {
         networkManager.fetchWeatherData(location: nil, city: city) { result in
             switch result {
             case .success(let weatherData):
@@ -227,18 +216,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchTextField.isHidden = true
-        searchTextField.resignFirstResponder()
-        if let city = textField.text {
-            cityName = city
-            fetchDataForCity(city)
-        }
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    private func updateUI(with weatherData: WeatherData) {
+    private func updateUI(with weatherData: WeatherModel) {
         DispatchQueue.main.async {
             let weatherType = weatherData.weather.first?.description ?? ""
             self.typeOfWeatherLabel.text = weatherType
@@ -260,6 +238,24 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             })
         }
     }
+    
+    func showAlertNoConnections() {
+        let alert = UIAlertController(title: "Whoops!", message: "This app requires an internet connection!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"),
+                                      style: .default, handler: {_ in
+            NSLog("The \"OK \" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showErrorAlert(with error: Error?) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 }
 
 extension HomeViewController: CLLocationManagerDelegate {
@@ -273,23 +269,27 @@ extension HomeViewController: CLLocationManagerDelegate {
         guard let location = locations.last else { return }
         self.location = location
         locationManager.stopUpdatingLocation()
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=\(apiKey)")!
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                self.showErrorAlert(with: error)
-                return
-            }
-            
-            do {
-                let weatherData = try JSONDecoder().decode(WeatherData.self, from: data)
-                DispatchQueue.main.async {
-                    self.updateUI(with: weatherData)
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=\(apiKey)"
+        guard let url = URL(string: urlString) else {
+            showErrorAlert(with: UnknownError())
+            return
+        }
+        
+        networkManager.getWeather(from: url) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    let weatherData = try JSONDecoder().decode(WeatherModel.self, from: data)
+                    DispatchQueue.main.async {
+                        self.updateUI(with: weatherData)
+                    }
+                } catch {
+                    self.showErrorAlert(with: error)
                 }
-            } catch {
+            case .failure(let error):
                 self.showErrorAlert(with: error)
             }
         }
-        task.resume()
     }
 }

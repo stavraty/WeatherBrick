@@ -20,7 +20,7 @@
 		F02129CE29E7520F00665538 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02129CD29E7520F00665538 /* NetworkManager.swift */; };
 		F07AFDDE29CCE5840001BE88 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFDDD29CCE5840001BE88 /* Reachability.swift */; };
 		F07D212C29C271F300772826 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07D212B29C271F300772826 /* InfoViewController.swift */; };
-		F0B65AF529C3C7030004FF20 /* MyWeatherDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B65AF429C3C7030004FF20 /* MyWeatherDataFile.swift */; };
+		F0B65AF529C3C7030004FF20 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B65AF429C3C7030004FF20 /* WeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +60,7 @@
 		F02129CD29E7520F00665538 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F07AFDDD29CCE5840001BE88 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		F07D212B29C271F300772826 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		F0B65AF429C3C7030004FF20 /* MyWeatherDataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWeatherDataFile.swift; sourceTree = "<group>"; };
+		F0B65AF429C3C7030004FF20 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,7 @@
 				A3475F00273305F200BF5E86 /* HomeViewController.swift */,
 				F07D212B29C271F300772826 /* InfoViewController.swift */,
 				A3475F02273305F200BF5E86 /* Main.storyboard */,
-				F0B65AF429C3C7030004FF20 /* MyWeatherDataFile.swift */,
+				F0B65AF429C3C7030004FF20 /* WeatherModel.swift */,
 				F02129CD29E7520F00665538 /* NetworkManager.swift */,
 				F07AFDDD29CCE5840001BE88 /* Reachability.swift */,
 				A3ACF2E4273847C600CEE97C /* Resources */,
@@ -332,7 +332,7 @@
 				F02129CE29E7520F00665538 /* NetworkManager.swift in Sources */,
 				A3475F01273305F200BF5E86 /* HomeViewController.swift in Sources */,
 				F07D212C29C271F300772826 /* InfoViewController.swift in Sources */,
-				F0B65AF529C3C7030004FF20 /* MyWeatherDataFile.swift in Sources */,
+				F0B65AF529C3C7030004FF20 /* WeatherModel.swift in Sources */,
 				F07AFDDE29CCE5840001BE88 /* Reachability.swift in Sources */,
 				A3475EFF273305F200BF5E86 /* AppDelegate.swift in Sources */,
 			);
