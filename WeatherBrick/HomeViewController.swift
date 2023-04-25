@@ -7,8 +7,6 @@ import UIKit
 import WebKit
 import CoreLocation
 
-let reachability = try! Reachability()
-
 class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet private var infoButton: UIButton!
@@ -21,21 +19,21 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private var searchButton: UIButton!
     @IBOutlet private var searchTextField: UITextField!
     
+    private let reachability = try! Reachability()
     private let networkManager = NetworkManager()
-    private var cityName: String = ""
-    static let locationManager = CLLocationManager()
-    
-    private let locationImageView = UIImageView(image: UIImage(named: "icon_location"))
-    private let searchImageView = UIImageView(image: UIImage(named: "icon_search"))
     private let locationManager = CLLocationManager()
-    private var location: CLLocation!
-    private let apiKey = "d09438c0cc92bf784485c365b0ec1c93"
     
     private let pullToRefreshWeather: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshWeather(_:)), for: .valueChanged)
         return refreshControl
     }()
+    
+    private var location: CLLocation!
+    private let apiKey = "d09438c0cc92bf784485c365b0ec1c93"
+    private let locationImageView = UIImageView(image: UIImage(named: "icon_location"))
+    private let searchImageView = UIImageView(image: UIImage(named: "icon_search"))
+    private var cityName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,20 +48,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         setupReachabilityNotifier()
         setupRefreshControlInBrickImage()
         setupPanGesture()
-    }
-    
-    @IBAction func goToInfo(_ sender: Any) {
-        performSegue(withIdentifier: "goToInfo", sender: nil)
-    }
-    
-    @IBAction func pushToLocationButton(_ sender: Any) {
-        pullToRefreshWeather.beginRefreshing()
-        refreshWeather(pullToRefreshWeather)
-    }
-    
-    @IBAction func pushToSearchButton(_ sender: Any) {
-        searchTextField.isHidden = false
-        searchTextField.becomeFirstResponder()
     }
     
     func setupRefreshControl() {
@@ -141,6 +125,24 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         }
         textField.resignFirstResponder()
         return true
+    }
+    
+    func showAlertNoConnections() {
+        let alert = UIAlertController(title: "Whoops!", message: "This app requires an internet connection!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"),
+                                      style: .default, handler: {_ in
+            NSLog("The \"OK \" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showErrorAlert(with error: Error?) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
     @objc private func refreshWeather(_ sender: UIRefreshControl) {
@@ -239,22 +241,18 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func showAlertNoConnections() {
-        let alert = UIAlertController(title: "Whoops!", message: "This app requires an internet connection!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"),
-                                      style: .default, handler: {_ in
-            NSLog("The \"OK \" alert occured.")
-        }))
-        self.present(alert, animated: true, completion: nil)
+    @IBAction func goToInfo(_ sender: Any) {
+        performSegue(withIdentifier: "goToInfo", sender: nil)
     }
     
-    func showErrorAlert(with error: Error?) {
-        DispatchQueue.main.async {
-            let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
-        }
+    @IBAction func pushToLocationButton(_ sender: Any) {
+        pullToRefreshWeather.beginRefreshing()
+        refreshWeather(pullToRefreshWeather)
+    }
+    
+    @IBAction func pushToSearchButton(_ sender: Any) {
+        searchTextField.isHidden = false
+        searchTextField.becomeFirstResponder()
     }
 }
 
