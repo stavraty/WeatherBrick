@@ -127,24 +127,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func showAlertNoConnections() {
-        let alert = UIAlertController(title: "Whoops!", message: "This app requires an internet connection!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"),
-                                      style: .default, handler: {_ in
-            NSLog("The \"OK \" alert occured.")
-        }))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func showErrorAlert(with error: Error?) {
-        DispatchQueue.main.async {
-            let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
-        }
-    }
-    
     @objc private func refreshWeather(_ sender: UIRefreshControl) {
         fetchData()
         sender.endRefreshing()
@@ -238,6 +220,24 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                     self.brickImage.transform = CGAffineTransform.identity
                 })
             })
+        }
+    }
+    
+    private func showAlertNoConnections() {
+        let alert = UIAlertController(title: "Whoops!", message: "This app requires an internet connection!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"),
+                                      style: .default, handler: {_ in
+            NSLog("The \"OK \" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showErrorAlert(with error: Error?) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
