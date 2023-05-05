@@ -18,6 +18,7 @@
 		F02129CE29E7520F00665538 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02129CD29E7520F00665538 /* NetworkManager.swift */; };
 		F02613F02A0543CC006B3C9E /* WeatherBrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02613EF2A0543CC006B3C9E /* WeatherBrickTests.swift */; };
 		F02613FD2A0543FE006B3C9E /* WeatherBrickUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02613FC2A0543FE006B3C9E /* WeatherBrickUITests.swift */; };
+		F0577C962A05A6E800D7360C /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = F0577C952A05A6E800D7360C /* SnapshotTesting */; };
 		F07AFDDE29CCE5840001BE88 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07AFDDD29CCE5840001BE88 /* Reachability.swift */; };
 		F07D212C29C271F300772826 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07D212B29C271F300772826 /* InfoViewController.swift */; };
 		F0B65AF529C3C7030004FF20 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B65AF429C3C7030004FF20 /* WeatherModel.swift */; };
@@ -73,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0577C962A05A6E800D7360C /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +95,7 @@
 				F02613EE2A0543CC006B3C9E /* WeatherBrickTests */,
 				F02613FB2A0543FE006B3C9E /* WeatherBrickUITests */,
 				A3475EFC273305F200BF5E86 /* Products */,
+				F0577C942A05A6E800D7360C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +169,13 @@
 			path = WeatherBrickUITests;
 			sourceTree = "<group>";
 		};
+		F0577C942A05A6E800D7360C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,6 +211,9 @@
 				F02613F22A0543CC006B3C9E /* PBXTargetDependency */,
 			);
 			name = WeatherBrickTests;
+			packageProductDependencies = (
+				F0577C952A05A6E800D7360C /* SnapshotTesting */,
+			);
 			productName = WeatherBrickTests;
 			productReference = F02613ED2A0543CB006B3C9E /* WeatherBrickTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -681,6 +694,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F0577C952A05A6E800D7360C /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F02613E32A04F945006B3C9E /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A3475EF3273305F200BF5E86 /* Project object */;
 }

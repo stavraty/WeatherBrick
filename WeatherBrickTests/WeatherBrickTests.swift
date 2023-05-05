@@ -12,25 +12,35 @@ import CoreLocation
 @testable import WeatherBrick
 
 class NetworkManagerTests: XCTestCase, XCTestObservation {
-    
+
     let networkManager = NetworkManager()
     var record: Bool = false
 
     override func setUp() {
         super.setUp()
-//        // Register test observers on the main thread
-//        DispatchQueue.main.async {
-//            XCTAssertNil(Failure.diff(snapshotsDir: "Snapshots"))
-//            self.record = false
-//        }
+        self.record = false
     }
 
     override func tearDown() {
         super.tearDown()
-        // Unregister test observer on the main thread
-        DispatchQueue.main.async {
-            XCTestObservationCenter.shared.removeTestObserver(self)
+    }
+    
+    func testFetchWeatherDataWithValidLocation() {
+        let networkManager = NetworkManager()
+        let expectation = self.expectation(description: "Fetch weather data with valid location")
+
+        let validLocation = CLLocation(latitude: 37.3324, longitude: -122.0308)
+        networkManager.fetchWeatherData(location: validLocation, city: nil) { result in
+            switch result {
+            case .success(let weatherData):
+                XCTAssertNotNil(weatherData, "Weather data should not be nil")
+                expectation.fulfill()
+            case .failure(let error):
+                XCTFail("Expected success, but received failure with error: \(error.localizedDescription)")
+            }
         }
+
+        self.waitForExpectations(timeout: 5.0, handler: nil)
     }
 
     func testFetchWeatherDataWithInvalidLocation() {
