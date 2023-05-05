@@ -1,31 +1,52 @@
 //
-//  Created by Volodymyr Andriienko on 11/3/21.
-//  Copyright © 2021 VAndrJ. All rights reserved.
+//  WeatherBrickUITests.swift
+//  WeatherBrickUITests
+//
+//  Created by AS on 05.05.2023.
+//  Copyright © 2023 VAndrJ. All rights reserved.
 //
 
+import UIKit
 import XCTest
+@testable import WeatherBrick
 
 class WeatherBrickUITests: XCTestCase {
+
+    var app: XCUIApplication!
+    
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+        app = XCUIApplication()
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app.launch()
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testSwipeToUpdateWeather() {
+        let brickImageElement = app.images["brickImage"]
+        brickImageElement.swipeDown()
+        XCTAssertEqual(app.staticTexts["LocationLabel"].label, " Odesa, UA ")
+        XCTAssertTrue(app.staticTexts["temperature"].exists)
+        XCTAssertTrue(app.staticTexts["typeOfWeather"].exists)
+    }
+    
+    func testSearchUpdateWeatherForCity() {
+        app.buttons["SearchButton"].tap()
+        app.textFields["SearchTextField"].tap()
+        app.textFields["SearchTextField"].typeText("New York")
+        app.textFields["SearchTextField"].typeText("\n")
+        
+        let expectation = self.expectation(description: "Wait for location label to change")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 5)
+        
+        XCTAssertEqual(app.staticTexts["LocationLabel"].label, " New York, US ")
+        XCTAssertTrue(app.staticTexts["temperature"].exists)
+        XCTAssertTrue(app.staticTexts["typeOfWeather"].exists)
     }
 }
