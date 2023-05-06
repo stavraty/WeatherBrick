@@ -33,6 +33,14 @@ class WeatherBrickUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["typeOfWeather"].exists)
     }
     
+    func testTapToUpdateWeather() {
+        app.buttons["locationButton"].tap()
+        XCTAssertEqual(app.staticTexts["LocationLabel"].label, " Odesa, UA ")
+        XCTAssertTrue(app.staticTexts["temperature"].exists)
+        XCTAssertTrue(app.staticTexts["typeOfWeather"].exists)
+        
+    }
+    
     func testSearchUpdateWeatherForCity() {
         app.buttons["SearchButton"].tap()
         app.textFields["SearchTextField"].tap()
