@@ -21,10 +21,6 @@ class WeatherBrickUITests: XCTestCase {
         app.launch()
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-    
     func testSwipeToUpdateWeather() {
         let brickImageElement = app.images["brickImage"]
         brickImageElement.swipeDown()

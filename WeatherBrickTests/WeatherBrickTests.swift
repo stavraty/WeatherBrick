@@ -14,26 +14,18 @@ import CoreLocation
 class NetworkManagerTests: XCTestCase, XCTestObservation {
 
     let networkManager = NetworkManager()
-    var record: Bool = false
-
-    override func setUp() {
-        super.setUp()
-        self.record = false
-    }
-
-    override func tearDown() {
-        super.tearDown()
-    }
+    let record: Bool = false
     
     func testFetchWeatherDataWithValidLocation() {
         let networkManager = NetworkManager()
         let expectation = self.expectation(description: "Fetch weather data with valid location")
 
-        let validLocation = CLLocation(latitude: 37.3324, longitude: -122.0308)
+        let validLocation = CLLocation(latitude: 51.5072, longitude: -0.1276)
         networkManager.fetchWeatherData(location: validLocation, city: nil) { result in
             switch result {
             case .success(let weatherData):
                 XCTAssertNotNil(weatherData, "Weather data should not be nil")
+                XCTAssertEqual(weatherData.name, "London", "City name should be London")
                 expectation.fulfill()
             case .failure(let error):
                 XCTFail("Expected success, but received failure with error: \(error.localizedDescription)")
