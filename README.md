@@ -1,4 +1,5 @@
 # Weather Brick
+Application that works with the location and weather API
 
 The Weather Forecast Brick App is designed to provide users with a unique and playful way of checking the weather. It displays a weather brick on a rope, and the appearance of the brick changes based on the current weather conditions at the user's location.
 
