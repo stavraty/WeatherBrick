@@ -68,7 +68,7 @@ The app's design is inspired by the Figma template available at the following li
 
 ## License
 
-This project is distributed under the [MIT License](LICENSE).
+This project is distributed under the [MIT License](https://github.com/stavraty/WeatherBrick/blob/dev/LICENCE).
 
 ---
 
